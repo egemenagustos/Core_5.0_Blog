@@ -1,0 +1,26 @@
+﻿@using static Core_5._0_Blog.Controllers.EmployeController;
+@model List<test>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad</th>
+        <th>Sil</th>
+        <th>Düzenle</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Name</td>
+            <td><a href="/Employe/DeleteEmploye/@item.ID" class="btn btn-sm btn-outline-danger">Sil</a></td>
+            <td><a href="/Employe/EditEmploye/@item.ID" class="btn btn-sm btn-outline-success">Düzenle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Employe/AddEmploye/" class="btn btn-sm btn-primary">Yeni Çalışan Ekle</a>

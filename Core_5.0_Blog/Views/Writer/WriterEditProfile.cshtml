@@ -1,0 +1,40 @@
+﻿@model UserUpdateViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "WriterEditProfile";
+    Layout = "~/Views/Shared/WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <form class="forms-sample" method="post" asp-controller="Writer" asp-action="WriterEditProfile">
+                <div class="form-group">
+                    <label for="exampleInputName1">Adı & Soyadı</label>
+                    <input type="text"  asp-for=NameSurname class="form-control" id="exampleInputName1" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Kullanıcı Adı</label>
+                    <input type="text"  asp-for=UserName class="form-control" id="exampleInputName1" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Mail Adresi</label>
+                    <input type="text" asp-for=Mail as class="form-control" id="exampleInputEmail3" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre</label>
+                    <input type="password" asp-for=Password class="form-control" id="exampleInputPassword4" placeholder="Yeni Şifre">
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" id="flexCheckChecked" asp-for=ChangePassword>
+                    <label for="flexCheckChecked">
+                        Şifremi Değiştirmek istemiyorum
+                    </label>
+                    </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>

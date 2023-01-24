@@ -1,0 +1,82 @@
+﻿@using EntityLayer.Concrete
+@model List<Message2>
+
+@{
+    ViewData["Title"] = "SendBox";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+<div class="wrapper wrapper-content">
+    <div class="row">
+      @await Component.InvokeAsync("MessageNavbar")
+        <div class="col-lg-9 animated fadeInRight">
+            <div class="mail-box-header">
+
+                <form method="get" action="index.html" class="float-right mail-search">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-sm" name="search" placeholder="Mail Ara">
+                        <div class="input-group-btn">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Ara
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <h2>
+                    Giden Kutusu (0)
+                </h2>
+                <div class="mail-tools tooltip-demo m-t-md">
+                    <div class="btn-group float-right">
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                        <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+
+                    </div>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="left" title="Yenile"><i class="fa fa-refresh"></i> Yenile </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Okundu olarak işaretle"><i class="fa fa-eye"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Önemli olarak işaretle"><i class="fa fa-exclamation"></i> </button>
+                    <button class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Çöp kutusuna taşı"><i class="fa fa-trash-o"></i> </button>
+
+                </div>
+            </div>
+            <div class="mail-box">
+
+                <table class="table table-hover table-mail">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="unread">
+                                <td class="check-mail">
+                                    <input type="checkbox" class="i-checks">
+                                </td>
+                                <td class="mail-ontact"><a href="mail_detail.html">@item.ReceicerUser.WriterNameSurname</a></td>
+                                <td class="mail-subject"><a href="mail_detail.html">@item.Subject</a></td>
+                                <td class=""><i class="fa fa-paperclip"></i></td>
+                                <td class="text-right mail-date">@(((DateTime)item.MessageDate).ToString("dd-MMM-yyyy"))</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/inspinia.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+

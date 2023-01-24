@@ -1,0 +1,16 @@
+﻿@using static Core_5._0_Blog.Controllers.EmployeController;
+@model test
+
+
+@{
+    ViewData["Title"] = "AddEmploye";
+    Layout = "~/Areas/Admin/Views/Shared/AdminLayout.cshtml";
+}
+
+<form method="post">
+    <label>Çalışan Adı</label>
+    <input type="text" class="form-control" asp-for="Name" />
+    <br />
+    <button type="submit" class="btn btn-sm btn-outline-info">Ekle</button>
+</form>
+
